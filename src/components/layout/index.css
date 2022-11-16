@@ -62,3 +62,16 @@
 .menu-btn-title {
   margin-left: 10px;
 }
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
