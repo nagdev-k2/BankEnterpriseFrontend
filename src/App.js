@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
 import store, { persistor } from './state';
-import Home from './home';
+import Home from './components/home';
 
 import {
   ApolloClient,
