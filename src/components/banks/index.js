@@ -15,14 +15,14 @@ const Home = () => {
   }, [data]);
 
   return (
-    <Layout isLoading={loading}>
+    <>
       <h1>All Banks</h1>
       <div>
         {map(banks, bank => (
           <h4 key={bank.BANK_ID}>{bank.BANK_NAME}</h4>
         ))}
       </div>
-    </Layout>
+    </>
   );
 }
 

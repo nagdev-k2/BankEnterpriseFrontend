@@ -1,10 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-
-import store, { persistor } from './state';
-import Home from './components/home';
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -13,6 +9,9 @@ import {
   from,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
+
+import store, { persistor } from './state';
+import Layout from './components/layout';
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
@@ -36,7 +35,7 @@ const App = () => (
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <ApolloProvider client={client}>
-        <Home />
+        <Layout />
       </ApolloProvider>
     </PersistGate>
   </Provider>
