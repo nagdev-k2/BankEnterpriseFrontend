@@ -28,7 +28,8 @@
 }
 
 .content {
-  width: 79%;
+  width: 80%;
+  padding: 20px;
 }
 
 .menu-btn {
@@ -73,5 +74,35 @@
   color: white;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.table {
+  margin: 10px;
+}
+
+.table-head {
+  background-color: #2E6FBE;
+  color: white;
+  min-width: 150px;
+}
+
+.table-row {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  height: 35px;
+}
+
+.table-row:hover {
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.table-col {
+  min-width: 150px;
+}
+
+.table-col.center {
   text-align: center;
 }
