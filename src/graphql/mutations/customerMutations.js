@@ -1,14 +1,14 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_CUSTOMER = gql`
-  mutation createCustomer($ssn: CustomerInput) {
-    createCustomer(ssn: $ssn)
+  mutation createCustomer($customer: CustomerInput) {
+    createCustomer(customer: $customer)
   }
 `;
 
 export const UPDATE_CUSTOMER = gql`
-  mutation updateCustomer($ssn: CustomerInput) {
-    updateCustomer(ssn: $ssn)
+  mutation updateCustomer($customer: CustomerInput) {
+    updateCustomer(customer: $customer)
   }
 `;
 
