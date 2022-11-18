@@ -16,7 +16,7 @@ const Table = ({ tableHeaders, tableRows, manageRow }) => (
       {map(tableRows, (row, index) => (
         <tr className='table-row' key={`table-row-${index}`}>
           {map(row, (col, index) => index !== '__typename' ? (<td className='table-col' key={`table-col-${index}`}>{col}</td>) : null)}
-          <td className='table-col center' key={`table-col-mng`} onClick={() => manageRow(row)}> <AiFillEdit /> </td>
+          <td className='table-col' key={`table-col-mng`} onClick={() => manageRow(row)}> <AiFillEdit /> </td>
         </tr>
       ))}
     </tbody>

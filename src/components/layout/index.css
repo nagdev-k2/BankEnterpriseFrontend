@@ -11,7 +11,6 @@
 
 .body {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
   height: 90vh;
 }
@@ -28,8 +27,8 @@
 }
 
 .content {
-  width: 80%;
-  padding: 20px;
+  width: 82%;
+  padding: 20px 10px;
 }
 
 .menu-btn {
@@ -82,7 +81,7 @@
 }
 
 .table-head {
-  background-color: #2E6FBE;
+  background-color: #2E6FBE !important;
   color: white;
   min-width: 150px;
 }
@@ -101,8 +100,4 @@
 
 .table-col {
   min-width: 150px;
-}
-
-.table-col.center {
-  text-align: center;
 }
