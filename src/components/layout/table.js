@@ -1,8 +1,10 @@
 import React from 'react';
-import { map } from 'lodash';
+import { isEmpty, map } from 'lodash';
 import { AiFillEdit } from 'react-icons/ai';
 
-const Table = ({ tableHeaders, tableRows, manageRow }) => (
+const Table = ({ tableHeaders, tableRows, manageRow }) => isEmpty(tableRows) ? (
+  <h5 className='no-data' > No Data Available </h5>
+) : (
   <table className='table'>
     <thead>
       <tr className='table-row'>

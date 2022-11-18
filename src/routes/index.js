@@ -6,12 +6,13 @@ import { MdAccountBalanceWallet }  from 'react-icons/md';
 import Home from '../components/home';
 import Banks from '../components/banks';
 import Branches from '../components/branches';
+import Assetes from '../components/assets';
 
 const routes = [
   {name: 'Home', icon: (<AiFillHome />), id: 0, component: <Home />},
   {name: 'Banks', icon: (<BsBank2/>), id: 1, component: <Banks />},
   {name: 'Branches', icon: (<IoMdGitBranch/>), id: 2, component: <Branches />},
-  {name: 'Assets', icon: (<GiBassetHoundHead />), id: 3, component: <></>},
+  {name: 'Assets', icon: (<GiBassetHoundHead />), id: 3, component: <Assetes />},
   {name: 'Customers', icon: (<BsFillPeopleFill />), id: 4, component: <></>},
   {name: 'Employees', icon: (<IoIosPeople />), id: 5, component: <></>},
   {name: 'Accounts', icon: (<MdAccountBalanceWallet/>), id: 6, component: <></>},
