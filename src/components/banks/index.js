@@ -11,7 +11,7 @@ import Table from "../layout/table";
 import BankModal from '../modals/bank';
 import './index.css'
 
-const Home = () => {
+const Bank = () => {
   const { error, loading, data, refetch } = useQuery(getAllBanks);
   const [banks, setBanks] = useState([]);
   const [showBankModal, setShowBankModal] = useState(false);
@@ -81,4 +81,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Bank;

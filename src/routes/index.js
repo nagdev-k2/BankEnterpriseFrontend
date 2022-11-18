@@ -4,12 +4,13 @@ import { IoMdGitBranch, IoIosPeople }  from 'react-icons/io';
 import { GiBassetHoundHead, } from 'react-icons/gi';
 import { MdAccountBalanceWallet }  from 'react-icons/md';
 import Home from '../components/home';
-import Bank from '../components/banks';
+import Banks from '../components/banks';
+import Branches from '../components/branches';
 
 const routes = [
   {name: 'Home', icon: (<AiFillHome />), id: 0, component: <Home />},
-  {name: 'Banks', icon: (<BsBank2/>), id: 1, component: <Bank />},
-  {name: 'Branches', icon: (<IoMdGitBranch/>), id: 2, component: <></>},
+  {name: 'Banks', icon: (<BsBank2/>), id: 1, component: <Banks />},
+  {name: 'Branches', icon: (<IoMdGitBranch/>), id: 2, component: <Branches />},
   {name: 'Assets', icon: (<GiBassetHoundHead />), id: 3, component: <></>},
   {name: 'Customers', icon: (<BsFillPeopleFill />), id: 4, component: <></>},
   {name: 'Employees', icon: (<IoIosPeople />), id: 5, component: <></>},

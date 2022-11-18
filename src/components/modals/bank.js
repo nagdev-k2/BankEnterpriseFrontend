@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { isEmpty } from 'lodash';
@@ -7,7 +7,10 @@ import { Form } from 'react-bootstrap';
 const Bank = ({ show, setShow, selectedBank, bank, setBank, createBank, refetch, updateBank, deleteBank }) => {
   let isEdit = false;
   if (!isEmpty(selectedBank)) isEdit = true;
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setBank({BANK_ID: '', BANK_NAME:''})
+    setShow(false);
+  }
 
   const updateData = (e) => {
     setBank({
@@ -20,7 +23,6 @@ const Bank = ({ show, setShow, selectedBank, bank, setBank, createBank, refetch,
     if (isEdit) updateBank();
     else createBank();
     refetch();
-    setBank({BANK_ID: '', BANK_NAME:''})
     handleClose();
   }
 
