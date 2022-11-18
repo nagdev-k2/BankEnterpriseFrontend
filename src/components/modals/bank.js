@@ -39,14 +39,14 @@ const Bank = ({ show, setShow, selectedBank, bank, setBank, createBank, refetch,
           <Form.Control name="BANK_NAME" className="input-field" type="text" placeholder="Bank Name" value={bank.BANK_NAME} onChange={updateData} />
         </Modal.Body>
         <Modal.Footer>
-          {isEdit && (
-            <Button variant="secondary" onClick={deleteBankData}>
-              Delete
-            </Button>
-          )}
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
+          {isEdit && (
+            <Button variant="danger" onClick={deleteBankData}>
+              Delete Bank
+            </Button>
+          )}
           <Button variant="primary" onClick={saveBank}>
             Save Changes
           </Button>
