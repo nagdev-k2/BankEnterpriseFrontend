@@ -1,6 +1,6 @@
 import React from 'react';
 import { isEmpty, map } from 'lodash';
-import { AiFillEdit } from 'react-icons/ai';
+import { MdOutlineEditNote } from 'react-icons/md';
 
 const Table = ({ tableHeaders, tableRows, manageRow }) => isEmpty(tableRows) ? (
   <h5 className='no-data' > No Data Available </h5>
@@ -11,14 +11,12 @@ const Table = ({ tableHeaders, tableRows, manageRow }) => isEmpty(tableRows) ? (
         {map(tableHeaders, head => (
           <th className='table-head' key={`table-head-${head}`}>{head}</th>
         ))}
-        <th className='table-head' key={`table-head-mng`}>Manage</th>
       </tr>
     </thead>
     <tbody>
       {map(tableRows, (row, index) => (
         <tr className='table-row' key={`table-row-${index}`}>
-          {map(row, (col, index) => index !== '__typename' ? (<td className='table-col' key={`table-col-${index}`}>{col}</td>) : null)}
-          <td className='table-col' key={`table-col-mng`} onClick={() => manageRow(row)}> <AiFillEdit /> </td>
+          {map(row, (col, index) => index !== '__typename' ? (<td onClick={() => manageRow(row)} className='table-col' key={`table-col-${index}`}>{col}</td>) : null)}
         </tr>
       ))}
     </tbody>

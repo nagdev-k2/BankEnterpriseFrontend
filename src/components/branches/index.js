@@ -79,7 +79,7 @@ const Branch = () => {
         refetch={refetch}
         updateData={updateBranch}
         deleteData={deleteBranch}
-        defaultData={{BANK_ID: '', BRANCH_NAME:'', BRANCH_ID: '', CITY: ''}}
+        defaultData={{BANK_ID: '', BRANCH_ID: '', BRANCH_NAME:'', CITY: ''}}
       />
     </>
   );

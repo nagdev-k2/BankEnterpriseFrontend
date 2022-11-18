@@ -30,7 +30,7 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
   const deleteSelectedData = () => {
     deleteData();
   }
-
+  
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -38,7 +38,11 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
           <Modal.Title>{isEdit ? `Edit ${title}` : `Add ${title}`}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {map(Object.keys(data), (k, index) => !isEqual(k, '__typename') && (
+          {map(Object.keys(data), (k, index) =>
+           (isEqual(title, 'Customer')
+           || isEqual(title, 'Employee')
+           || isEqual(title, 'Record')
+           || !isEqual(Object.keys(defaultData)[0], k)) ? (
             <Form.Control
               className="input-field"
               type="text"  
@@ -48,7 +52,7 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
               value={data[k]}
               onChange={updateFieldData}
               disabled={includes(k, 'ID') && isEdit} />
-          ))}
+          ) : null)}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
