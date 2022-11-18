@@ -10,6 +10,7 @@ import Assetes from '../components/assets';
 import Customers from '../components/customers';
 import Employees from '../components/employees';
 import Accounts from '../components/accounts';
+import Records from '../components/records';
 
 const routes = [
   {name: 'Home', icon: (<AiFillHome />), id: 0, component: <Home />},
@@ -19,7 +20,7 @@ const routes = [
   {name: 'Customers', icon: (<BsFillPeopleFill />), id: 4, component: <Customers />},
   {name: 'Employees', icon: (<IoIosPeople />), id: 5, component: <Employees />},
   {name: 'Accounts', icon: (<MdAccountBalanceWallet/>), id: 6, component: <Accounts />},
-  {name: 'Records', icon: (<AiFillDatabase/>), id: 7, component: <></>}
+  {name: 'Records', icon: (<AiFillDatabase/>), id: 7, component: <Records />}
 ];
 
 export default routes;
