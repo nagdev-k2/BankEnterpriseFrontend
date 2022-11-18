@@ -39,7 +39,6 @@ const Asset = () => {
   let assetesList = assets;
 
   useEffect(() => {
-    console.log('-->',data);
     if (data) {
       setAssets(data.getAllAssets);
       setSearchedAsset(data.getAllAssets)
