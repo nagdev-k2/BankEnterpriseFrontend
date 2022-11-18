@@ -8,7 +8,7 @@ import { CREATE_BANK, UPDATE_BANK, DELETE_BANK } from '../../graphql/mutations/b
 import Loading from "../layout/loading";
 import { getAllBanks } from "../../graphql/queries/bankQueries";
 import Table from "../layout/table";
-import BankModal from '../modals/bank';
+import CustomModal from '../modals';
 import './index.css'
 
 const Bank = () => {
@@ -66,7 +66,8 @@ const Bank = () => {
         <Button className="add-btn" onClick={addBank}>Add New Bank</Button>
       </div>
       <Table tableHeaders={['ID', 'Name']} tableRows={searchedBanks} manageRow={manageBank}  />
-      <BankModal
+      <CustomModal
+        title='Bank'
         show={showBankModal}
         setShow={setShowBankModal}
         selectedData={selectedBank}
@@ -76,6 +77,7 @@ const Bank = () => {
         refetch={refetch}
         updateData={updateBank}
         deleteData={deleteBank}
+        defaultData={{BANK_ID: '', BANK_NAME:''}}
       />
     </>
   );

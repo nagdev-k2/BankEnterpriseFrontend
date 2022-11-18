@@ -8,7 +8,7 @@ import { CREATE_BRANCH, UPDATE_BRANCH, DELETE_BRANCH } from '../../graphql/mutat
 import Loading from "../layout/loading";
 import { getAllBranches } from "../../graphql/queries/branchQueries";
 import Table from "../layout/table";
-import BranchModal from '../modals/branch';
+import CustomModal from '../modals';
 import './index.css'
 
 const Branch = () => {
@@ -68,7 +68,8 @@ const Branch = () => {
         <Button className="add-btn" onClick={addBranch}>Add New Branch</Button>
       </div>
       <Table tableHeaders={['BANK ID', 'BRANCH ID', 'Name', 'CITY']} tableRows={searchedBranch} manageRow={manageBranch}  />
-      <BranchModal
+      <CustomModal
+        title='Branch'
         show={showBranchModal}
         setShow={setShowBranchModal}
         selectedData={selectedBranch}
@@ -78,6 +79,7 @@ const Branch = () => {
         refetch={refetch}
         updateData={updateBranch}
         deleteData={deleteBranch}
+        defaultData={{BANK_ID: '', BRANCH_NAME:'', BRANCH_ID: '', CITY: ''}}
       />
     </>
   );
