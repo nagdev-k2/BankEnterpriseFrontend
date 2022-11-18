@@ -44,7 +44,7 @@ const Branch = () => {
   
   const onSearch = (event) => {
     let name = event.target.value;
-    if (name.length > 0) branchList = filter(branchList, b => includes(lowerCase(b.BANK_NAME), lowerCase(name)))
+    if (name.length > 0) branchList = filter(branchList, b => includes(lowerCase(b.BRANCH_NAME), lowerCase(name)))
     else branchList = branches;
     setSearchedBranches(branchList);
   }
@@ -71,13 +71,13 @@ const Branch = () => {
       <BranchModal
         show={showBranchModal}
         setShow={setShowBranchModal}
-        selectedBranch={selectedBranch}
-        branch={branch}
-        setBranch={setBranch}
-        createBranch={createBranch}
+        selectedData={selectedBranch}
+        data={branch}
+        setData={setBranch}
+        createData={createBranch}
         refetch={refetch}
-        updateBranch={updateBranch}
-        deleteBranch={deleteBranch}
+        updateData={updateBranch}
+        deleteData={deleteBranch}
       />
     </>
   );

@@ -4,31 +4,31 @@ import Modal from 'react-bootstrap/Modal';
 import { isEmpty } from 'lodash';
 import { Form } from 'react-bootstrap';
 
-const Branch = ({ show, setShow, selectedBranch, branch, setBranch, createBranch, refetch, updateBranch, deleteBranch }) => {
+const Branch = ({ show, setShow, selectedData, data, setData, createData, refetch, updateData, deleteData }) => {
   let isEdit = false;
-  if (!isEmpty(selectedBranch)) isEdit = true;
+  if (!isEmpty(selectedData)) isEdit = true;
 
   const handleClose = () => {
-    setBranch({BANK_ID: '', BRANCH_NAME:'', BANK_ID: '', CITY: ''});
+    setData({BANK_ID: '', BRANCH_NAME:'', BANK_ID: '', CITY: ''});
     setShow(false);
   }
 
-  const updateData = (e) => {
-    setBranch({
-      ...branch,
+  const updateFieldData = (e) => {
+    setData({
+      ...data,
       [e.target.name]: e.target.value
     })
   }
 
   const saveBank = () => {
-    if (isEdit) updateBranch();
-    else createBranch();
+    if (isEdit) updateData();
+    else createData();
     refetch();
     handleClose();
   }
 
   const deleteBankData = () => {
-    deleteBranch();
+    deleteData();
   }
 
   return (
@@ -38,10 +38,10 @@ const Branch = ({ show, setShow, selectedBranch, branch, setBranch, createBranch
           <Modal.Title>{isEdit ? 'Edit Branch' : 'Add Branch'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Control name="BANK_ID" className="input-field" type="text" placeholder="Bank ID" value={branch.BANK_ID} onChange={updateData} disabled={isEdit} />
-          <Form.Control name="BRANCH_ID" className="input-field" type="text" placeholder="Branch ID" value={branch.BRANCH_ID} onChange={updateData} disabled={isEdit} />
-          <Form.Control name="BRANCH_NAME" className="input-field" type="text" placeholder="Branch Name" value={branch.BRANCH_NAME} onChange={updateData} />
-          <Form.Control name="CITY" className="input-field" type="text" placeholder="City" value={branch.CITY} onChange={updateData} />
+          <Form.Control name="BANK_ID" className="input-field" type="text" placeholder="Bank ID" value={data.BANK_ID} onChange={updateFieldData} disabled={isEdit} />
+          <Form.Control name="BRANCH_ID" className="input-field" type="text" placeholder="Branch ID" value={data.BRANCH_ID} onChange={updateFieldData} disabled={isEdit} />
+          <Form.Control name="BRANCH_NAME" className="input-field" type="text" placeholder="Branch Name" value={data.BRANCH_NAME} onChange={updateFieldData} />
+          <Form.Control name="CITY" className="input-field" type="text" placeholder="City" value={data.CITY} onChange={updateFieldData} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

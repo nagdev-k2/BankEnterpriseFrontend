@@ -69,13 +69,13 @@ const Bank = () => {
       <BankModal
         show={showBankModal}
         setShow={setShowBankModal}
-        selectedBank={selectedBank}
-        bank={bank}
-        setBank={setBank}
-        createBank={createBank}
+        selectedData={selectedBank}
+        data={bank}
+        setData={setBank}
+        createData={createBank}
         refetch={refetch}
-        updateBank={updateBank}
-        deleteBank={deleteBank}
+        updateData={updateBank}
+        deleteData={deleteBank}
       />
     </>
   );

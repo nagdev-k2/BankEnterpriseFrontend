@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { isEmpty } from 'lodash';
 import { Form } from 'react-bootstrap';
 
-const Bank = ({ show, setShow, selectedData, data, setData, createData, refetch, updateData, deleteData }) => {
+const Asset = ({ show, setShow, selectedData, data, setData, createData, refetch, updateData, deleteData }) => {
   let isEdit = false;
   if (!isEmpty(selectedData)) isEdit = true;
   const handleClose = () => {
@@ -12,7 +12,7 @@ const Bank = ({ show, setShow, selectedData, data, setData, createData, refetch,
     setShow(false);
   }
 
-  const updateFieldData = (e) => {
+  const updateData = (e) => {
     setData({
       ...data,
       [e.target.name]: e.target.value
@@ -34,11 +34,11 @@ const Bank = ({ show, setShow, selectedData, data, setData, createData, refetch,
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{isEdit ? 'Edit Bank' : 'Add Bank'}</Modal.Title>
+          <Modal.Title>{isEdit ? 'Edit Asset' : 'Add Asset'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Control name="BANK_ID" className="input-field" type="text" placeholder="Bank ID" value={data.BANK_ID} onChange={updateFieldData} disabled={isEdit} />
-          <Form.Control name="BANK_NAME" className="input-field" type="text" placeholder="Bank Name" value={data.BANK_NAME} onChange={updateFieldData} />
+          <Form.Control name="BANK_ID" className="input-field" type="text" placeholder="Asset ID" value={data.BANK_ID} onChange={updateData} disabled={isEdit} />
+          <Form.Control name="BANK_NAME" className="input-field" type="text" placeholder="Asset Name" value={data.BANK_NAME} onChange={updateData} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -46,7 +46,7 @@ const Bank = ({ show, setShow, selectedData, data, setData, createData, refetch,
           </Button>
           {isEdit && (
             <Button variant="danger" onClick={deleteBankData}>
-              Delete Bank
+              Delete Asset
             </Button>
           )}
           <Button variant="primary" onClick={saveBank}>
@@ -58,4 +58,4 @@ const Bank = ({ show, setShow, selectedData, data, setData, createData, refetch,
   );
 }
 
-export default Bank;
+export default Asset;
