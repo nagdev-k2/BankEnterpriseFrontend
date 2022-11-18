@@ -42,7 +42,7 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
            (isEqual(title, 'Customer')
            || isEqual(title, 'Employee')
            || isEqual(title, 'Record')
-           || !isEqual(Object.keys(defaultData)[0], k)) ? (
+           || !isEqual(Object.keys(defaultData)[0], k)) && (
             <Form.Control
               className="input-field"
               type="text"  
@@ -52,7 +52,7 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
               value={data[k]}
               onChange={updateFieldData}
               disabled={includes(k, 'ID') && isEdit} />
-          ) : null)}
+          ))}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
