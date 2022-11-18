@@ -18,8 +18,8 @@ const Branch = () => {
   const [searchedBranch, setSearchedBranches] = useState(branches);
   const [selectedBranch, setSelectedBank] = useState({});
   const [branch, setBranch] = useState({
-    BANK_ID: isEmpty(selectedBranch) ? '' : selectedBranch.BANK_ID,
     BRANCH_ID: isEmpty(selectedBranch) ? '' : selectedBranch.BRANCH_ID,
+    BANK_ID: isEmpty(selectedBranch) ? '' : selectedBranch.BANK_ID,
     CITY: isEmpty(selectedBranch) ? '' : selectedBranch.CITY,
     BRANCH_NAME: isEmpty(selectedBranch) ? '' : selectedBranch.BRANCH_NAME,
   })
@@ -79,7 +79,7 @@ const Branch = () => {
         refetch={refetch}
         updateData={updateBranch}
         deleteData={deleteBranch}
-        defaultData={{BANK_ID: '', BRANCH_ID: '', BRANCH_NAME:'', CITY: ''}}
+        defaultData={{BRANCH_ID: '', BANK_ID: '', BRANCH_NAME:'', CITY: ''}}
       />
     </>
   );
