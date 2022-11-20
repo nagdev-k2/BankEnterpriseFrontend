@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_LOAN = gql`
-  mutation createLoan($loan: LoanInput) {
-    createLoan(loan: $loan)
+  mutation createLoan($loans: LoanInput) {
+    createLoan(loans: $loans)
   }
 `;
 
@@ -13,7 +13,7 @@ export const UPDATE_LOAN = gql`
 `;
 
 export const DELETE_LOAN = gql`
-  mutation deleteLoan($loanNo: ID!) {
-    deleteLoan(loanNo: $loanNo)
+  mutation deleteLoan($loan_no: ID!) {
+    deleteLoan(loan_no: $loan_no)
   }
 `;

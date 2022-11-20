@@ -21,18 +21,18 @@ const Loan = () => {
     LOAN_OFFICER_SSN: isEmpty(selectedLoan) ? '' : selectedLoan.LOAN_OFFICER_SSN,
     BRANCH_ID: isEmpty(selectedLoan) ? '' : selectedLoan.BRANCH_ID,
     CUSTOMER_SSN: isEmpty(selectedLoan) ? '' : selectedLoan.CUSTOMER_SSN,
-    AMOUNT: isEmpty(selectedLoan) ? '' : selectedLoan.AMOUNT,
+    BALANCE: isEmpty(selectedLoan) ? '' : selectedLoan.BALANCE,
     LOAN_TYPE: isEmpty(selectedLoan) ? '' : selectedLoan.LOAN_TYPE,
     CREDIT_LIMIT: isEmpty(selectedLoan) ? '' : selectedLoan.CREDIT_LIMIT,
     CREDIT_RATING: isEmpty(selectedLoan) ? '' : selectedLoan.CREDIT_RATING,
     INTEREST_RATE: isEmpty(selectedLoan) ? '' : selectedLoan.INTEREST_RATE,
   })
   const [createLoan, {err1, result1}] = useMutation(CREATE_LOAN, {
-    variables: {loan: {
+    variables: {loans: {
       LOAN_OFFICER_SSN: loan.LOAN_OFFICER_SSN,
       BRANCH_ID: loan.BRANCH_ID,
       CUSTOMER_SSN:loan.CUSTOMER_SSN,
-      AMOUNT: loan.AMOUNT,
+      BALANCE: loan.BALANCE,
       LOAN_TYPE: loan.LOAN_TYPE,
       CREDIT_LIMIT: loan.CREDIT_LIMIT,
       CREDIT_RATING: loan.CREDIT_RATING,
@@ -43,7 +43,7 @@ const Loan = () => {
     variables: {loan}
   })
   const [deleteLoan, {err3, result3}] = useMutation(DELETE_LOAN, {
-    variables: {loanNo: loan.LOAN_NO}
+    variables: {loan_no: loan.LOAN_NO}
   })
 
   let loanList = loans;
@@ -80,7 +80,7 @@ const Loan = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Loan Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addLoan}>Add New Loan</Button>
       </div>
-      <Table tableHeaders={['LOAN NO', 'LOAN OFFICER SSN', 'BRANCH ID', 'CUSTOMER SSN', 'AMOUNT', 'LOAN TYPE', 'CREDIT LIMIT', 'CREDIT RATING', 'INTEREST RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />
+      <Table tableHeaders={['LOAN NO', 'LOAN OFFICER SSN', 'BRANCH ID', 'CUSTOMER SSN', 'BALANCE', 'LOAN TYPE', 'CREDIT LIMIT', 'CREDIT RATING', 'INTEREST RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />
       <CustomModal
         title='Loan'
         show={showLoanModal}
@@ -92,7 +92,7 @@ const Loan = () => {
         refetch={refetch}
         updateData={updateLoan}
         deleteData={deleteLoan}
-        defaultData={{LOAN_NO: '', LOAN_OFFICER_SSN: '', BRANCH_ID: '', CUSTOMER_SSN: '', AMOUNT: '', LOAN_TYPE: '', CREDIT_LIMIT: '', CREDIT_RATING: '', INTEREST_RATE: ''}}
+        defaultData={{LOAN_NO: '', LOAN_OFFICER_SSN: '', BRANCH_ID: '', CUSTOMER_SSN: '', BALANCE: '', LOAN_TYPE: '', CREDIT_LIMIT: '', CREDIT_RATING: '', INTEREST_RATE: ''}}
       />
     </>
   );

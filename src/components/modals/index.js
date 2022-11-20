@@ -40,7 +40,7 @@ const Input = ({ k, data, index, updateFieldData, isEdit, title }) => {
         placeholder={k}
         value={data}
         onChange={updateFieldData}
-        disabled={(includes(k, 'ID') || isEqual(k, 'SSN')) && isEdit} />
+        disabled={(includes(k, 'ID') || isEqual(k, 'SSN')|| isEqual(k, 'BALANCE')) && isEdit} />
     )
   }
 }
@@ -61,6 +61,7 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
       || includes(e.target.name, 'RATE')
       || includes(e.target.name, 'CREDIT')
       || includes(e.target.name, 'AMOUNT')
+      || includes(e.target.name, 'BALANCE')
       || includes(e.target.name, 'OVERDRAFTS')  ) {
       setData({
         ...data,
@@ -98,9 +99,9 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
             !isEqual(k, 'LENGTH_OF_EMPLOYMENT')
             && !isEqual(k, 'RECENT_ACCESS_DATE')
             && (isEqual(title, 'Customer')
-           || isEqual(title, 'Employee')
-           || isEqual(title, 'Record')
-           || !isEqual(Object.keys(defaultData)[0], k))) && (
+            || isEqual(title, 'Employee')
+            || isEqual(title, 'Record')
+            || !isEqual(Object.keys(defaultData)[0], k))) && (
             <Input
               key={`form-control-${k}-${index}`}
               k={k}

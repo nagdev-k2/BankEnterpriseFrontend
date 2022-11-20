@@ -70,7 +70,7 @@ const Dependent = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Dependent Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addDependent}>Add New Dependent</Button>
       </div>
-      <Table tableHeaders={['DEPENDENT ID', 'DEPENDENT SSN', 'EMPLOYEE SSN', 'NAME']} tableRows={searchedDependent} manageRow={manageDependent}  />
+      <Table tableHeaders={['DEPENDENT ID', 'EMPLOYEE SSN', 'DEPENDENT SSN', 'NAME']} tableRows={searchedDependent} manageRow={manageDependent}  />
       <CustomModal
         title='Dependent'
         show={showDependentModal}

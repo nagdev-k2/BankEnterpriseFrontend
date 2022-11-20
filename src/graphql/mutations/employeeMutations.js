@@ -13,7 +13,7 @@ export const UPDATE_EMPLOYEE = gql`
 `;
 
 export const DELETE_EMPLOYEE = gql`
-  mutation deleteEmployee($ssn: ID!) {
-    deleteEmployee(ssn: $ssn)
+  mutation deleteEmployee($employee_ssn: ID!) {
+    deleteEmployee(employee_ssn: $employee_ssn)
   }
 `;

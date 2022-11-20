@@ -7,7 +7,7 @@ export const getAllLoans = gql`
       LOAN_OFFICER_SSN
       BRANCH_ID
       CUSTOMER_SSN
-      AMOUNT
+      BALANCE
       LOAN_TYPE
       CREDIT_LIMIT
       CREDIT_RATING
@@ -23,7 +23,7 @@ export const getLoanDetails = gql`
       LOAN_OFFICER_SSN
       BRANCH_ID
       CUSTOMER_SSN
-      AMOUNT
+      BALANCE
       LOAN_TYPE
       CREDIT_LIMIT
       CREDIT_RATING
