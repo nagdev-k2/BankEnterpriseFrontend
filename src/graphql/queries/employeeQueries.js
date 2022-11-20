@@ -10,6 +10,7 @@ export const getAllEmployees = gql`
       ROLE
       START_DATE
       MANAGER_SSN
+      LENGTH_OF_EMPLOYMENT
     }
   }
 `;

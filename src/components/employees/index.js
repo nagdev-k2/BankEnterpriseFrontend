@@ -22,8 +22,8 @@ const Employee = () => {
     NAME: isEmpty(selectedEmployee) ? '' : selectedEmployee.NAME,
     TELEPHONE: isEmpty(selectedEmployee) ? '' : selectedEmployee.TELEPHONE,
     ROLE: isEmpty(selectedEmployee) ? '' : selectedEmployee.ROLE,
-    START_DATE: isEmpty(selectedEmployee) ? '' : selectedEmployee.START_DATE,
     MANAGER_SSN: isEmpty(selectedEmployee) ? '' : selectedEmployee.MANAGER_SSN,
+    START_DATE: isEmpty(selectedEmployee) ? '' : selectedEmployee.START_DATE
   })
   const [createEmployee, {err1, result1}] = useMutation(CREATE_EMPLOYEE, {
     variables: {employee}
@@ -69,7 +69,7 @@ const Employee = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Employee Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addEmployee}>Add New Employee</Button>
       </div>
-      <Table tableHeaders={['SSN', 'BRANCH ID' , 'NAME', 'TELEPHONE', 'ROLE', 'START DATE', 'MANAGER SSN']} tableRows={searchedEmployee} manageRow={manageEmployee}  />
+      <Table tableHeaders={['SSN', 'BRANCH ID' , 'NAME', 'TELEPHONE', 'ROLE', 'MANAGER SSN', 'START DATE', 'LENGTH OF EMPLOYMENT']} tableRows={searchedEmployee} manageRow={manageEmployee}  />
       <CustomModal
         title='Employee'
         show={showEmployeeModal}
