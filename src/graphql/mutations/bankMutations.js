@@ -2,10 +2,7 @@ import { gql } from "@apollo/client";
 
 export const CREATE_BANK = gql`
   mutation createBank($bank: BankInput) {
-    createBank(bank: $bank) {
-      BANK_ID
-      BANK_NAME
-    }
+    createBank(bank: $bank)
   }
 `;
 
@@ -16,7 +13,7 @@ export const UPDATE_BANK = gql`
 `;
 
 export const DELETE_BANK = gql`
-  mutation deleteBank($bankId: ID!) {
-    deleteBank(bankId: $bankId)
+  mutation deleteBank($bank_id: ID!) {
+    deleteBank(bank_id: $bank_id)
   }
 `;

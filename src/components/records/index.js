@@ -1,10 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import Form from 'react-bootstrap/Form';
 import { filter, includes, isEmpty, lowerCase } from 'lodash';
 import Button from "@restart/ui/esm/Button";
 
-import { CREATE_RECORD, UPDATE_RECORD, DELETE_RECORD } from '../../graphql/mutations/recordMutations';
+import { CREATE_RECORD } from '../../graphql/mutations/recordMutations';
 import Loading from "../layout/loading";
 import { getAllRecords } from "../../graphql/queries/recordQueries";
 import Table from "../layout/table";
@@ -17,20 +16,13 @@ const Record = () => {
   const [searchedRecord, setSearchedRecord] = useState(records);
   const [selectedRecord, setSelectedRecord] = useState({});
   const [record, setRecord] = useState({
-    RECORD_NO: isEmpty(selectedRecord) ? '' : selectedRecord.RECORD_NO,
     ACCOUNT_NO: isEmpty(selectedRecord) ? '' : selectedRecord.ACCOUNT_NO,
     TYPE: isEmpty(selectedRecord) ? '' : selectedRecord.TYPE,
     DATE: isEmpty(selectedRecord) ? '' : selectedRecord.DATE,
     AMOUNT: isEmpty(selectedRecord) ? '' : selectedRecord.AMOUNT,
   })
   const [createRecord, {err1, result1}] = useMutation(CREATE_RECORD, {
-    variables: {record}
-  })
-  const [updateRecord, {err2, result2}] = useMutation(UPDATE_RECORD, {
-    variables: {record}
-  })
-  const [deleteRecord, {err3, result3}] = useMutation(DELETE_RECORD, {
-    variables: {recordNo: record.RECORD_NO}
+    variables: {records: record}
   })
 
   let recordList = records;
@@ -54,20 +46,14 @@ const Record = () => {
     setShowRecordModal(true)
   }
 
-  const manageRecord = (row) => {
-    setSelectedRecord(row);
-    setRecord(row);
-    setShowRecordModal(true)
-  }
-
   return (
     <>
       <Loading isLoading={loading} />
       <div className="operation-row">
-        <Form.Control className="input-field" type="text" placeholder="Search Record Name" onKeyUp={onSearch} />
+        {/* <Form.Control className="input-field" type="text" placeholder="Search Record Name" onKeyUp={onSearch} /> */}
         <Button className="add-btn" onClick={addRecord}>Add New Record</Button>
       </div>
-      <Table tableHeaders={['RECORD NO', 'ACCOUNT_NO', 'DATE', 'TYPE', 'AMOUNT',]} tableRows={searchedRecord} manageRow={manageRecord}  />
+      <Table tableHeaders={['RECORD NO', 'ACCOUNT_NO', 'DATE', 'TYPE', 'AMOUNT',]} tableRows={searchedRecord} manageRow={() => {}} />
       <CustomModal
         title='Record'
         show={showRecordModal}
@@ -77,9 +63,7 @@ const Record = () => {
         setData={setRecord}
         createData={createRecord}
         refetch={refetch}
-        updateData={updateRecord}
-        deleteData={deleteRecord}
-        defaultData={{RECORD_NO: '' ,ACCOUNT_NO: '', TYPE: '', DATE:'', AMOUNT: ''}}
+        defaultData={{ACCOUNT_NO: '', TYPE: '', DATE:'', AMOUNT: ''}}
       />
     </>
   );

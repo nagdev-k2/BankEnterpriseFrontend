@@ -7,13 +7,13 @@ export const CREATE_ASSET = gql`
 `;
 
 export const UPDATE_ASSET = gql`
-  mutation updateAsset($asset: AssetInput) {
-    updateAsset(asset: $asset)
+  mutation updateAsset($assets: AssetInput) {
+    updateAsset(assets: $assets)
   }
 `;
 
 export const DELETE_ASSET = gql`
-  mutation deleteAsset($assetId: ID!) {
-    deleteAsset(assetId: $assetId)
+  mutation deleteAsset($asset_id: ID!) {
+    deleteAsset(asset_id: $asset_id)
   }
 `;

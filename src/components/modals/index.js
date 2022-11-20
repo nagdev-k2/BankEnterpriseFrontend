@@ -6,12 +6,20 @@ import { isEmpty, map, includes, isEqual } from 'lodash';
 import { Form } from 'react-bootstrap';
 
 
-const Input = ({ k, data, index, updateFieldData, isEdit, title }) => {
-  let opts = ['DEPOSIT', 'WITHDRAW'];
+const Input = ({ k, data, index, updateFieldData, isEdit, title }) => {  
+  const onChange = (e) => {
+    let ev = {target: { name: k, value: e.target.id }}
+    updateFieldData(ev);
+  }
+  let opts = [];
+  if (isEqual(title, 'Asset')) opts = ['Electronics', 'Stationary', 'Automobile', 'Other']
+  if (isEqual(title, 'Loan')) opts = ['Personal', 'Car', 'Educational', 'Home', 'Other']
+  if (isEqual(title, 'Record')) opts = ['DEPOSIT', 'WITHDRAW']
   if (isEqual(title, 'Account')) opts = ['SAVINGS', 'CHECKINGS', 'CD ACCOUNT']
-  if (isEqual(k, 'TYPE')) {
+  if (isEqual(title, 'Customer')) opts = ['PERSONAL BANKER', 'LOAN OFFICER']
+  if (includes(k, 'TYPE')) {
     return (
-      <Dropdown>
+      <Dropdown name={k} onSelect={(_, e) => onChange(e)}>
         <Dropdown.Toggle className='dropdown' variant={'secondary'} id="dropdown-basic">
           {k}
         </Dropdown.Toggle>
@@ -30,9 +38,9 @@ const Input = ({ k, data, index, updateFieldData, isEdit, title }) => {
         key={`form-control-${k}-${index}`}
         name={k}
         placeholder={k}
-        value={data[k]}
+        value={data}
         onChange={updateFieldData}
-        disabled={includes(k, 'ID') && isEdit} />
+        disabled={(includes(k, 'ID') || isEqual(k, 'SSN')) && isEdit} />
     )
   }
 }
@@ -47,21 +55,36 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
   }
 
   const updateFieldData = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value
-    })
+    if(
+      includes(e.target.name, 'SSN')
+      || includes(e.target.name, 'COST')
+      || includes(e.target.name, 'RATE')
+      || includes(e.target.name, 'CREDIT')
+      || includes(e.target.name, 'AMOUNT')
+      || includes(e.target.name, 'OVERDRAFTS')  ) {
+      setData({
+        ...data,
+        [e.target.name]: parseInt(e.target.value)
+      })  
+    } else {
+      setData({
+        ...data,
+        [e.target.name]: e.target.value
+      })
+    }
   }
 
   const saveData = () => {
-    if (isEdit) updateData();
-    else createData();
+    if (isEdit) {updateData()}
+    else {createData()}
     refetch();
     handleClose();
   }
 
   const deleteSelectedData = () => {
     deleteData();
+    refetch();
+    handleClose();
   }
   
   return (
@@ -72,9 +95,11 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
         </Modal.Header>
         <Modal.Body>
           {map(Object.keys(data), (k, index) =>(
-            !isEqual(k, '__typename')
+            !isEqual(k, 'LENGTH_OF_EMPLOYMENT')
+            && !isEqual(k, 'RECENT_ACCESS_DATE')
             && (isEqual(title, 'Customer')
            || isEqual(title, 'Employee')
+           || isEqual(title, 'Record')
            || !isEqual(Object.keys(defaultData)[0], k))) && (
             <Input
               key={`form-control-${k}-${index}`}

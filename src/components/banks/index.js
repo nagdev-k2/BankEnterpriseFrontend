@@ -29,7 +29,7 @@ const Bank = () => {
     variables: {bank}
   })
   const [deleteBank, {err3, result3}] = useMutation(DELETE_BANK, {
-    variables: {bankId: bank.BANK_ID}
+    variables: {bank_id: bank.BANK_ID}
   })
 
   let banksList = banks;

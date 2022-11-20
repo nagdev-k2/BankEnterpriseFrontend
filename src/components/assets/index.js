@@ -36,10 +36,10 @@ const Asset = () => {
     }}
   })
   const [updateAsset, {err2, result2}] = useMutation(UPDATE_ASSET, {
-    variables: {asset}
+    variables: {assets:asset}
   })
   const [deleteAsset, {err3, result3}] = useMutation(DELETE_ASSET, {
-    variables: {assetId: asset.ASSET_ID}
+    variables: {asset_id: asset.ASSET_ID}
   })
 
   let assetesList = assets;

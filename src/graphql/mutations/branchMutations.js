@@ -13,7 +13,7 @@ export const UPDATE_BRANCH = gql`
 `;
 
 export const DELETE_BRANCH = gql`
-  mutation deleteBranch($branchId: ID!) {
-    deleteBranch(branchId: $branchId)
+  mutation deleteBranch($branch_id: ID!) {
+    deleteBranch(branch_id: $branch_id)
   }
 `;

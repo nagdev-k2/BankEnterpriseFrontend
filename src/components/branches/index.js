@@ -33,7 +33,7 @@ const Branch = () => {
     variables: {branch}
   })
   const [deleteBranch, {err3, result3}] = useMutation(DELETE_BRANCH, {
-    variables: {branchId: branch.BRANCH_ID}
+    variables: {branch_id: branch.BRANCH_ID}
   })
 
   let branchList = branches;

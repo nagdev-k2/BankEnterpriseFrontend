@@ -1,19 +1,19 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_DEPENDENT = gql`
-  mutation createDependent($dependent: DependentInput) {
-    createDependent(dependent: $dependent)
+  mutation createDependents($dependents: DependentsInput) {
+    createDependents(dependents: $dependents)
   }
 `;
 
 export const UPDATE_DEPENDENT = gql`
-  mutation updateDependent($dependent: DependentInput) {
-    updateDependent(dependent: $dependent)
+  mutation updateDependents($dependents: DependentsInput) {
+    updateDependents(dependents: $dependents)
   }
 `;
 
 export const DELETE_DEPENDENT = gql`
-  mutation deleteDependent($dependentId: ID!) {
-    deleteDependent(dependentId: $dependentId)
+  mutation deleteDependents($dep_id: ID!) {
+    deleteDependents(dep_id: $dep_id)
   }
 `;

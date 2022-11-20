@@ -78,7 +78,7 @@ const Loan = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Loan Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addLoan}>Add New Loan</Button>
       </div>
-      <Table tableHeaders={['LOAN_NO', 'LOAN_OFFICER_SSN', 'BRANCH_ID', 'AMOUNT', 'LOAN_TYPE', 'CREDIT_LIMIT', 'CREDIT_RATING', 'INTEREST_RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />
+      <Table tableHeaders={['LOAN NO', 'LOAN OFFICER SSN', 'BRANCH ID', 'AMOUNT', 'LOAN TYPE', 'CREDIT LIMIT', 'CREDIT RATING', 'INTEREST RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />
       <CustomModal
         title='Loan'
         show={showLoanModal}

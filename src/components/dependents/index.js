@@ -23,17 +23,17 @@ const Dependent = () => {
     NAME: isEmpty(selectedDependent) ? '' : selectedDependent.NAME,
   })
   const [createDependent, {err1, result1}] = useMutation(CREATE_DEPENDENT, {
-    variables: {dependent: {
+    variables: {dependents: {
       EMPLOYEE_SSN: dependent.EMPLOYEE_SSN,
       DEPENDENT_SSN: dependent.DEPENDENT_SSN,
       NAME: dependent.NAME,
     }}
   })
   const [updateDependent, {err2, result2}] = useMutation(UPDATE_DEPENDENT, {
-    variables: {dependent}
+    variables: {dependents: dependent}
   })
   const [deleteDependent, {err3, result3}] = useMutation(DELETE_DEPENDENT, {
-    variables: {dependentId: dependent.DEP_ID}
+    variables: {dep_id: dependent.DEP_ID}
   })
 
   let dependentList = dependents;

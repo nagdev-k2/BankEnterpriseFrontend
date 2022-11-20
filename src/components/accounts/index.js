@@ -26,7 +26,7 @@ const Account = () => {
     OVERDRAFTS: isEmpty(selectedAccount) ? '' : selectedAccount.OVERDRAFTS,
   })
   const [createAccount, {err1, result1}] = useMutation(CREATE_ACCOUNT, {
-    variables: {account: {
+    variables: {accounts: {
       BRANCH_ID: account.BRANCH_ID,
       BALANCE: account.BALANCE,
       RECENT_ACCESS_DATE: account.RECENT_ACCESS_DATE,
@@ -36,10 +36,10 @@ const Account = () => {
     }}
   })
   const [updateAccount, {err2, result2}] = useMutation(UPDATE_ACCOUNT, {
-    variables: {account}
+    variables: {accounts:account}
   })
   const [deleteAccount, {err3, result3}] = useMutation(DELETE_ACCOUNT, {
-    variables: {accountNo: account.ACCOUNT_NO}
+    variables: {account_no: account.ACCOUNT_NO}
   })
 
   let accountList = accounts;
@@ -68,7 +68,7 @@ const Account = () => {
     setAccount(row);
     setShowAccountModal(true)
   }
-
+  
   return (
     <>
       <Loading isLoading={loading} />

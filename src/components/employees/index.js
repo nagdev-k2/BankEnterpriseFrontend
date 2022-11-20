@@ -69,7 +69,7 @@ const Employee = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Employee Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addEmployee}>Add New Employee</Button>
       </div>
-      <Table tableHeaders={['SSN','BRANCH ID' , 'NAME', 'TELEPHONE', 'ROLE', 'MANAGER SSN', 'START DATE', 'LENGTH OF EMPLOYMENT (YRS)']} tableRows={searchedEmployee} manageRow={manageEmployee}  />
+      <Table tableHeaders={['SSN','BRANCH ID' , 'NAME', 'TELEPHONE', 'ROLE', 'START DATE',  'LENGTH OF EMPLOYMENT (YRS)']} tableRows={searchedEmployee} manageRow={manageEmployee}  />
       <CustomModal
         title='Employee'
         show={showEmployeeModal}

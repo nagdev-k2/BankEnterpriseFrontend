@@ -1,19 +1,19 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_ACCOUNT = gql`
-  mutation createAccount($account: AccountInput) {
-    createAccount(account: $account)
+  mutation createAccounts($accounts: AccountsInput) {
+    createAccounts(accounts: $accounts)
   }
 `;
 
 export const UPDATE_ACCOUNT = gql`
-  mutation updateAccount($account: AccountInput) {
-    updateAccount(account: $account)
+  mutation updateAccounts($accounts: AccountsInput) {
+    updateAccounts(accounts: $accounts)
   }
 `;
 
 export const DELETE_ACCOUNT = gql`
-  mutation deleteAccount($accountNo: ID!) {
-    deleteAccount(accountNo: $accountNo)
+  mutation deleteAccounts($account_no: ID!) {
+    deleteAccounts(account_no: $account_no)
   }
 `;
