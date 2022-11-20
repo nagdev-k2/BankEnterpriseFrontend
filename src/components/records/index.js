@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllRecords } from "../../graphql/queries/recordQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Record = () => {
   const { error, loading, data, refetch } = useQuery(getAllRecords);

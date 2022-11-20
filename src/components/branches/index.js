@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllBranches } from "../../graphql/queries/branchQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Branch = () => {
   const { error, loading, data, refetch } = useQuery(getAllBranches);

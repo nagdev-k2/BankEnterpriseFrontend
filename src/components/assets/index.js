@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllAssets } from "../../graphql/queries/assetQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Asset = () => {
   const { error, loading, data, refetch } = useQuery(getAllAssets);

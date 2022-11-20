@@ -19,3 +19,26 @@ code {
   border-radius: 5px;
   margin-bottom: 5px;
 }
+
+.operation-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2px 5px;
+  align-items: center;
+}
+
+.add-btn {
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #2E6FBE;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.add-btn:hover {
+  background-color: #2E6FBE;
+  transition: 0.3s;
+  color: white;
+  cursor: pointer;
+}

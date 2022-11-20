@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllLoans } from "../../graphql/queries/loanQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Loan = () => {
   const { error, loading, data, refetch } = useQuery(getAllLoans);

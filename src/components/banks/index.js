@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllBanks } from "../../graphql/queries/bankQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Bank = () => {
   const { error, loading, data, refetch } = useQuery(getAllBanks);
@@ -22,7 +21,9 @@ const Bank = () => {
     BANK_NAME: isEmpty(selectedBank) ? '' : selectedBank.BANK_NAME,
   })
   const [createBank, {err1, result1}] = useMutation(CREATE_BANK, {
-    variables: {bank}
+    variables: {bank: {
+      BANK_NAME: bank.BANK_NAME
+    }}
   })
   const [updateBank, {err2, result2}] = useMutation(UPDATE_BANK, {
     variables: {bank}

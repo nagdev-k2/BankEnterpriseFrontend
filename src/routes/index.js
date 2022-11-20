@@ -12,6 +12,7 @@ import Employees from '../components/employees';
 import Accounts from '../components/accounts';
 import Records from '../components/records';
 import Loans from '../components/loans';
+import Dependents from '../components/dependents';
 
 const routes = [
   {name: 'Home', icon: (<AiFillHome />), id: 0, component: <Home />},
@@ -22,7 +23,8 @@ const routes = [
   {name: 'Employees', icon: (<IoIosPeople />), id: 5, component: <Employees />},
   {name: 'Accounts', icon: (<MdAccountBalanceWallet/>), id: 6, component: <Accounts />},
   {name: 'Records', icon: (<AiFillDatabase/>), id: 7, component: <Records />},
-  {name: 'Loans', icon: (<GiReceiveMoney/>), id: 8, component: <Loans />}
+  {name: 'Loans', icon: (<GiReceiveMoney/>), id: 8, component: <Loans />},
+  {name: 'Dependents', icon: (<IoIosPeople />), id: 9, component: <Dependents />},
 ];
 
 export default routes;

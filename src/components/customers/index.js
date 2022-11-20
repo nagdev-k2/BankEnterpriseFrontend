@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllCustomers } from "../../graphql/queries/customerQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Customer = () => {
   const { error, loading, data, refetch } = useQuery(getAllCustomers);

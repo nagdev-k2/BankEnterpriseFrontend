@@ -2,7 +2,10 @@ import { gql } from "@apollo/client";
 
 export const CREATE_BANK = gql`
   mutation createBank($bank: BankInput) {
-    createBank(bank: $bank)
+    createBank(bank: $bank) {
+      BANK_ID
+      BANK_NAME
+    }
   }
 `;
 

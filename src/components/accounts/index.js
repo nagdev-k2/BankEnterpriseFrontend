@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllAccounts } from "../../graphql/queries/accountQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Account = () => {
   const { error, loading, data, refetch } = useQuery(getAllAccounts);

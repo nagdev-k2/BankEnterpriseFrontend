@@ -9,7 +9,6 @@ import Loading from "../layout/loading";
 import { getAllEmployees } from "../../graphql/queries/employeeQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
-import './index.css'
 
 const Employee = () => {
   const { error, loading, data, refetch } = useQuery(getAllEmployees);
