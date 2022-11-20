@@ -23,7 +23,11 @@ const Branch = () => {
     BRANCH_NAME: isEmpty(selectedBranch) ? '' : selectedBranch.BRANCH_NAME,
   })
   const [createBranch, {err1, result1}] = useMutation(CREATE_BRANCH, {
-    variables: {branch}
+    variables: {branch: {
+      BANK_ID: branch.BANK_ID,
+      CITY: branch.CITY,
+      BRANCH_NAME: branch.BRANCH_NAME,
+    }}
   })
   const [updateBranch, {err2, result2}] = useMutation(UPDATE_BRANCH, {
     variables: {branch}

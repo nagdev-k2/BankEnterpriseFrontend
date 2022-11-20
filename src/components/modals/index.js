@@ -41,7 +41,6 @@ const CustomModal = ({ show, title, defaultData, setShow, selectedData, data, se
           {map(Object.keys(data), (k, index) =>
            (isEqual(title, 'Customer')
            || isEqual(title, 'Employee')
-           || isEqual(title, 'Record')
            || !isEqual(Object.keys(defaultData)[0], k)) && (
             <Form.Control
               className="input-field"

@@ -26,7 +26,14 @@ const Asset = () => {
     DATE_OF_PURCHASE: isEmpty(selectedAsset) ? '' : selectedAsset.DATE_OF_PURCHASE,
   })
   const [createAsset, {err1, result1}] = useMutation(CREATE_ASSET, {
-    variables: {asset}
+    variables: {asset: {
+      BRANCH_ID: asset.BRANCH_ID,
+      NAME: asset.NAME,
+      TYPE: asset.TYPE,
+      COST: asset.COST,
+      STATUS: asset.STATUS,
+      DATE_OF_PURCHASE: asset.DATE_OF_PURCHASE,
+    }}
   })
   const [updateAsset, {err2, result2}] = useMutation(UPDATE_ASSET, {
     variables: {asset}

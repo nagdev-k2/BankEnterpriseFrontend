@@ -27,7 +27,15 @@ const Loan = () => {
     INTEREST_RATE: isEmpty(selectedLoan) ? '' : selectedLoan.INTEREST_RATE,
   })
   const [createLoan, {err1, result1}] = useMutation(CREATE_LOAN, {
-    variables: {loan}
+    variables: {loan: {
+      LOAN_OFFICER_SSN: loan.LOAN_OFFICER_SSN,
+      BRANCH_ID: loan.BRANCH_ID,
+      AMOUNT: loan.AMOUNT,
+      LOAN_TYPE: loan.LOAN_TYPE,
+      CREDIT_LIMIT: loan.CREDIT_LIMIT,
+      CREDIT_RATING: loan.CREDIT_RATING,
+      INTEREST_RATE: loan.INTEREST_RATE,
+    }}
   })
   const [updateLoan, {err2, result2}] = useMutation(UPDATE_LOAN, {
     variables: {loan}

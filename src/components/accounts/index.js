@@ -26,7 +26,14 @@ const Account = () => {
     OVERDRAFTS: isEmpty(selectedAccount) ? '' : selectedAccount.OVERDRAFTS,
   })
   const [createAccount, {err1, result1}] = useMutation(CREATE_ACCOUNT, {
-    variables: {account}
+    variables: {account: {
+      BRANCH_ID: account.BRANCH_ID,
+      BALANCE: account.BALANCE,
+      RECENT_ACCESS_DATE: account.RECENT_ACCESS_DATE,
+      TYPE: account.TYPE,
+      INTEREST_RATE: account.INTEREST_RATE,
+      OVERDRAFTS: account.OVERDRAFTS,
+    }}
   })
   const [updateAccount, {err2, result2}] = useMutation(UPDATE_ACCOUNT, {
     variables: {account}

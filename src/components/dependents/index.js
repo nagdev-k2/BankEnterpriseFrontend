@@ -17,7 +17,7 @@ const Dependent = () => {
   const [searchedDependent, setSearchedDependent] = useState(dependents);
   const [selectedDependent, setSelectedDependent] = useState({});
   const [dependent, setDependent] = useState({
-    DEPENDENT_ID: isEmpty(selectedDependent) ? '' : selectedDependent.DEPENDENT_ID,
+    DEP_ID: isEmpty(selectedDependent) ? '' : selectedDependent.DEP_ID,
     EMPLOYEE_SSN: isEmpty(selectedDependent) ? '' : selectedDependent.EMPLOYEE_SSN,
     DEPENDENT_SSN: isEmpty(selectedDependent) ? '' : selectedDependent.DEPENDENT_SSN,
     NAME: isEmpty(selectedDependent) ? '' : selectedDependent.NAME,
@@ -33,7 +33,7 @@ const Dependent = () => {
     variables: {dependent}
   })
   const [deleteDependent, {err3, result3}] = useMutation(DELETE_DEPENDENT, {
-    variables: {dependentId: dependent.DEPENDENT_ID}
+    variables: {dependentId: dependent.DEP_ID}
   })
 
   let dependentList = dependents;
@@ -82,7 +82,7 @@ const Dependent = () => {
         refetch={refetch}
         updateData={updateDependent}
         deleteData={deleteDependent}
-        defaultData={{DEPENDENT_ID: '', EMPLOYEE_SSN: '', DEPENDENT_SSN:'', NAME: ''}}
+        defaultData={{DEP_ID: '', EMPLOYEE_SSN: '', DEPENDENT_SSN:'', NAME: ''}}
       />
     </>
   );

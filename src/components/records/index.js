@@ -17,6 +17,7 @@ const Record = () => {
   const [searchedRecord, setSearchedRecord] = useState(records);
   const [selectedRecord, setSelectedRecord] = useState({});
   const [record, setRecord] = useState({
+    RECORD_NO: isEmpty(selectedRecord) ? '' : selectedRecord.RECORD_NO,
     ACCOUNT_NO: isEmpty(selectedRecord) ? '' : selectedRecord.ACCOUNT_NO,
     TYPE: isEmpty(selectedRecord) ? '' : selectedRecord.TYPE,
     DATE: isEmpty(selectedRecord) ? '' : selectedRecord.DATE,
@@ -29,7 +30,7 @@ const Record = () => {
     variables: {record}
   })
   const [deleteRecord, {err3, result3}] = useMutation(DELETE_RECORD, {
-    variables: {accountNo: record.ACCOUNT_NO}
+    variables: {recordNo: record.RECORD_NO}
   })
 
   let recordList = records;
@@ -66,7 +67,7 @@ const Record = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Record Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addRecord}>Add New Record</Button>
       </div>
-      <Table tableHeaders={['ACCOUNT_NO', 'DATE', 'TYPE', 'AMOUNT',]} tableRows={searchedRecord} manageRow={manageRecord}  />
+      <Table tableHeaders={['RECORD NO', 'ACCOUNT_NO', 'DATE', 'TYPE', 'AMOUNT',]} tableRows={searchedRecord} manageRow={manageRecord}  />
       <CustomModal
         title='Record'
         show={showRecordModal}
@@ -78,7 +79,7 @@ const Record = () => {
         refetch={refetch}
         updateData={updateRecord}
         deleteData={deleteRecord}
-        defaultData={{ACCOUNT_NO: '', TYPE: '', DATE:'', AMOUNT: ''}}
+        defaultData={{RECORD_NO: '' ,ACCOUNT_NO: '', TYPE: '', DATE:'', AMOUNT: ''}}
       />
     </>
   );
