@@ -42,3 +42,8 @@ code {
   color: white;
   cursor: pointer;
 }
+
+.dropdown {
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
