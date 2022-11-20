@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { filter, includes, isEmpty, lowerCase } from 'lodash';
+import { isEmpty } from 'lodash';
 import Button from "@restart/ui/esm/Button";
 
 import { CREATE_LOAN_PAYMENT } from '../../graphql/mutations/loanPaymentMutations';
