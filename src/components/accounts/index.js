@@ -19,6 +19,7 @@ const Account = () => {
   const [account, setAccount] = useState({
     ACCOUNT_NO: isEmpty(selectedAccount) ? '' : selectedAccount.ACCOUNT_NO,
     BRANCH_ID: isEmpty(selectedAccount) ? '' : selectedAccount.BRANCH_ID,
+    CUSTOMER_SSN: isEmpty(selectedAccount) ? '' : selectedAccount.CUSTOMER_SSN,
     BALANCE: isEmpty(selectedAccount) ? '' : selectedAccount.BALANCE,
     RECENT_ACCESS_DATE: isEmpty(selectedAccount) ? '' : selectedAccount.RECENT_ACCESS_DATE,
     TYPE: isEmpty(selectedAccount) ? '' : selectedAccount.TYPE,
@@ -29,6 +30,7 @@ const Account = () => {
     variables: {accounts: {
       BRANCH_ID: account.BRANCH_ID,
       BALANCE: account.BALANCE,
+      CUSTOMER_SSN: account.CUSTOMER_SSN,
       RECENT_ACCESS_DATE: account.RECENT_ACCESS_DATE,
       TYPE: account.TYPE,
       INTEREST_RATE: account.INTEREST_RATE,
@@ -76,7 +78,7 @@ const Account = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Account Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addAccount}>Add New Account</Button>
       </div>
-      <Table tableHeaders={['ACCOUNT_NO', 'BRANCH ID' , 'BALANCE', 'RECENT_ACCESS_DATE', 'TYPE', 'INTEREST_RATE', 'OVERDRAFTS']} tableRows={searchedAccount} manageRow={manageAccount}  />
+      <Table tableHeaders={['ACCOUNT_NO', 'BRANCH ID', 'CUSTOMER SSN', 'BALANCE', 'RECENT_ACCESS_DATE', 'TYPE', 'INTEREST_RATE', 'OVERDRAFTS']} tableRows={searchedAccount} manageRow={manageAccount}  />
       <CustomModal
         title='Account'
         show={showAccountModal}
@@ -88,7 +90,7 @@ const Account = () => {
         refetch={refetch}
         updateData={updateAccount}
         deleteData={deleteAccount}
-        defaultData={{ACCOUNT_NO: '', BRANCH_ID: '', BALANCE:'', RECENT_ACCESS_DATE: '', TYPE: '', INTEREST_RATE: '', OVERDRAFTS: '' }}
+        defaultData={{ACCOUNT_NO: '', BRANCH_ID: '', CUSTOMER_SSN: '' ,BALANCE:'', RECENT_ACCESS_DATE: '', TYPE: '', INTEREST_RATE: '', OVERDRAFTS: '' }}
       />
     </>
   );

@@ -5,6 +5,7 @@ export const getAllAccounts = gql`
     getAllAccounts {
       ACCOUNT_NO
       BRANCH_ID
+      CUSTOMER_SSN
       BALANCE
       RECENT_ACCESS_DATE
       TYPE
@@ -19,6 +20,7 @@ export const getAccountDetails = gql`
     getAccountDetails(accountNo: ID) {
       ACCOUNT_NO
       BRANCH_ID
+      CUSTOMER_SSN
       BALANCE
       RECENT_ACCESS_DATE
       TYPE

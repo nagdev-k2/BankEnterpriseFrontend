@@ -20,6 +20,7 @@ const Loan = () => {
     LOAN_NO: isEmpty(selectedLoan) ? '' : selectedLoan.LOAN_NO,
     LOAN_OFFICER_SSN: isEmpty(selectedLoan) ? '' : selectedLoan.LOAN_OFFICER_SSN,
     BRANCH_ID: isEmpty(selectedLoan) ? '' : selectedLoan.BRANCH_ID,
+    CUSTOMER_SSN: isEmpty(selectedLoan) ? '' : selectedLoan.CUSTOMER_SSN,
     AMOUNT: isEmpty(selectedLoan) ? '' : selectedLoan.AMOUNT,
     LOAN_TYPE: isEmpty(selectedLoan) ? '' : selectedLoan.LOAN_TYPE,
     CREDIT_LIMIT: isEmpty(selectedLoan) ? '' : selectedLoan.CREDIT_LIMIT,
@@ -30,6 +31,7 @@ const Loan = () => {
     variables: {loan: {
       LOAN_OFFICER_SSN: loan.LOAN_OFFICER_SSN,
       BRANCH_ID: loan.BRANCH_ID,
+      CUSTOMER_SSN:loan.CUSTOMER_SSN,
       AMOUNT: loan.AMOUNT,
       LOAN_TYPE: loan.LOAN_TYPE,
       CREDIT_LIMIT: loan.CREDIT_LIMIT,
@@ -78,7 +80,7 @@ const Loan = () => {
         <Form.Control className="input-field" type="text" placeholder="Search Loan Name" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addLoan}>Add New Loan</Button>
       </div>
-      <Table tableHeaders={['LOAN NO', 'LOAN OFFICER SSN', 'BRANCH ID', 'AMOUNT', 'LOAN TYPE', 'CREDIT LIMIT', 'CREDIT RATING', 'INTEREST RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />
+      <Table tableHeaders={['LOAN NO', 'LOAN OFFICER SSN', 'BRANCH ID', 'CUSTOMER SSN', 'AMOUNT', 'LOAN TYPE', 'CREDIT LIMIT', 'CREDIT RATING', 'INTEREST RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />
       <CustomModal
         title='Loan'
         show={showLoanModal}
@@ -90,7 +92,7 @@ const Loan = () => {
         refetch={refetch}
         updateData={updateLoan}
         deleteData={deleteLoan}
-        defaultData={{LOAN_NO: '', LOAN_OFFICER_SSN: '', BRANCH_ID: '', AMOUNT: '', LOAN_TYPE: '', CREDIT_LIMIT: '', CREDIT_RATING: '', INTEREST_RATE: ''}}
+        defaultData={{LOAN_NO: '', LOAN_OFFICER_SSN: '', BRANCH_ID: '', CUSTOMER_SSN: '', AMOUNT: '', LOAN_TYPE: '', CREDIT_LIMIT: '', CREDIT_RATING: '', INTEREST_RATE: ''}}
       />
     </>
   );
