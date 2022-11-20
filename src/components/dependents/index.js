@@ -47,7 +47,7 @@ const Dependent = () => {
   
   const onSearch = (event) => {
     let name = event.target.value;
-    if (name.length > 0) dependentList = filter(dependentList, b => includes(lowerCase(b.DEPENDENT_SSN), lowerCase(name)))
+    if (name.length > 0) dependentList = filter(dependentList, b => includes(lowerCase(b.NAME), lowerCase(name)))
     else dependentList = dependents;
     setSearchedDependent(dependentList);
   }

@@ -33,13 +33,6 @@ const Record = () => {
       setSearchedRecord(data.getAllRecords)
     }
   }, [data]);
-  
-  const onSearch = (event) => {
-    let name = event.target.value;
-    if (name.length > 0) recordList = filter(recordList, b => includes(lowerCase(b.DATE), lowerCase(name)))
-    else recordList = records;
-    setSearchedRecord(recordList);
-  }
 
   const addRecord = () => {
     setSelectedRecord({});

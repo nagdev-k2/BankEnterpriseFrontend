@@ -47,7 +47,7 @@ const Branch = () => {
   
   const onSearch = (event) => {
     let name = event.target.value;
-    if (name.length > 0) branchList = filter(branchList, b => includes(lowerCase(b.BRANCH_NAME), lowerCase(name)))
+    if (name.length > 0) branchList = filter(branchList, b => includes(lowerCase(b.CITY), lowerCase(name)))
     else branchList = branches;
     setSearchedBranches(branchList);
   }
@@ -67,7 +67,7 @@ const Branch = () => {
     <>
       <Loading isLoading={loading} />
       <div className="operation-row">
-        <Form.Control className="input-field" type="text" placeholder="Search Branch Name" onKeyUp={onSearch} />
+        <Form.Control className="input-field" type="text" placeholder="Search City" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addBranch}>Add New Branch</Button>
       </div>
       <Table tableHeaders={['BANK ID', 'BRANCH ID', 'Name', 'CITY']} tableRows={searchedBranch} manageRow={manageBranch}  />
