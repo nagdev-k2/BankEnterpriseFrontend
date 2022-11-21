@@ -57,7 +57,7 @@ const Loan = () => {
   
   const onSearch = (event) => {
     let name = event.target.value;
-    if (name.length > 0) loanList = filter(loanList, b => includes(lowerCase(b.DATE), lowerCase(name)))
+    if (name.length > 0) loanList = filter(loanList, b => includes(lowerCase(b.LOAN_NO), lowerCase(name)))
     else loanList = loans;
     setSearchedLoan(loanList);
   }
@@ -77,7 +77,7 @@ const Loan = () => {
     <>
       <Loading isLoading={loading} />
       <div className="operation-row">
-        <Form.Control className="input-field" type="text" placeholder="Search Loan Name" onKeyUp={onSearch} />
+        <Form.Control className="input-field" type="text" placeholder="Search Loan No" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addLoan}>Add New Loan</Button>
       </div>
       <Table tableHeaders={['LOAN NO', 'LOAN OFFICER SSN', 'BRANCH ID', 'CUSTOMER SSN', 'BALANCE', 'LOAN TYPE', 'CREDIT LIMIT', 'CREDIT RATING', 'INTEREST RATE']} tableRows={searchedLoan} manageRow={manageLoan}  />

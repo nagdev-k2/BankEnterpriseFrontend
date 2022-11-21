@@ -14,6 +14,8 @@ import store, { persistor } from './state';
 import Layout from './components/layout';
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (networkError) alert('Something went wrong');
+
   if (graphqlErrors) {
     graphqlErrors.map(({ message, location, path }) => {
       alert(`Graphql error ${message}`);

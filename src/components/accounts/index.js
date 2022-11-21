@@ -55,7 +55,7 @@ const Account = () => {
   
   const onSearch = (event) => {
     let name = event.target.value;
-    if (name.length > 0) accountList = filter(accountList, b => includes(lowerCase(b.BALANCE), lowerCase(name)))
+    if (name.length > 0) accountList = filter(accountList, b => includes(b.ACCOUNT_NO, lowerCase(name)))
     else accountList = accounts;
     setSearchedAccount(accountList);
   }
@@ -75,7 +75,7 @@ const Account = () => {
     <>
       <Loading isLoading={loading} />
       <div className="operation-row">
-        <Form.Control className="input-field" type="text" placeholder="Search Account Name" onKeyUp={onSearch} />
+        <Form.Control className="input-field" type="text" placeholder="Search Account No" onKeyUp={onSearch} />
         <Button className="add-btn" onClick={addAccount}>Add New Account</Button>
       </div>
       <Table tableHeaders={['ACCOUNT_NO', 'BRANCH ID', 'CUSTOMER SSN', 'BALANCE', 'RECENT_ACCESS_DATE', 'TYPE', 'INTEREST_RATE', 'OVERDRAFTS']} tableRows={searchedAccount} manageRow={manageAccount}  />

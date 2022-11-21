@@ -8,9 +8,10 @@ import Loading from "../layout/loading";
 import { getAllRecords } from "../../graphql/queries/recordQueries";
 import Table from "../layout/table";
 import CustomModal from '../modals';
+import CustomAlert from "../layout/alerts";
 
 const Record = () => {
-  const { error, loading, data, refetch } = useQuery(getAllRecords);
+  const { loading, data, refetch } = useQuery(getAllRecords);
   const [records, setRecords] = useState([]);
   const [showRecordModal, setShowRecordModal] = useState(false);
   const [searchedRecord, setSearchedRecord] = useState(records);
@@ -21,7 +22,7 @@ const Record = () => {
     DATE: isEmpty(selectedRecord) ? '' : selectedRecord.DATE,
     AMOUNT: isEmpty(selectedRecord) ? '' : selectedRecord.AMOUNT,
   })
-  const [createRecord, {err1, result1}] = useMutation(CREATE_RECORD, {
+  const [createRecord, {error, result1}] = useMutation(CREATE_RECORD, {
     variables: {records: record}
   })
 
@@ -39,9 +40,10 @@ const Record = () => {
     setShowRecordModal(true)
   }
 
+  if(loading) return (<Loading isLoading={loading} />)
   return (
     <>
-      <Loading isLoading={loading} />
+      <CustomAlert error={error} />
       <div className="operation-row">
         {/* <Form.Control className="input-field" type="text" placeholder="Search Record Name" onKeyUp={onSearch} /> */}
         <Button className="add-btn" onClick={addRecord}>Add New Record</Button>

@@ -15,11 +15,12 @@ export const getBranchReport = gql`
 export const getWeeklyReport = gql`
   query {
     getWeeklyReport {
-      RECORD_NO
-      ACCOUNT_NO
-      DATE
-      TYPE
-      AMOUNT
+      BRANCH_ID
+      WEEK_START_DATE
+      LOAN_OFFICER_SSN
+      NO_OF_LOANS_HANDLED
+      LOAN_TYPE
+      AMOUNT_DEPOSITED
     }
   }
 `;

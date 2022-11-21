@@ -7,7 +7,7 @@ import Routes from '../../routes';
 import './index.css'
 
 const Layout = () => {
-  const [activeMenuId, setMenuActive] = useState(1);
+  const [activeMenuId, setMenuActive] = useState(0);
   const changeMenu = (btnId) => {
     setMenuActive(btnId);
   }
